@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div id='list'></div>
+    <button onclick="btnFilterNames()">Filter</button>
+    <div id="table"></div>
+
+    <button onclick="test1()">Counter 1</button> 
+    <span id="span1"></span> <br>
+    <button onclick="test2()">Counter 2</button>
+    <span id="span2"></span>
+
+    <script> 
+        var test1 = function() {
+            counter1.increment();
+            document.getElementById('span1').innerText = counter1.value();
+        }
+        var test2 = function() {
+            counter2.increment();
+            document.getElementById('span2').innerText = counter2.value();
+        }
+    </script>
+
+
+    <script src="./exDay1_pt1.js"></script>
+    <script src="./exDay1_pt2.js"></script>
+</body>
+
+</html>
