@@ -8,7 +8,6 @@ module.exports.allJokes = function (callback) {
     var collection = db.collection("jokes");
     collection.find({}).toArray(function (err, docs) {
         if (err) { return callback(err, docs) };
-        console.log("Err: " + err);
         return callback(err, docs);
     });
 };
