@@ -26,18 +26,19 @@ var server = http.createServer(app);
  */
 
 var db = require("../db/db");
-var connection_string = "mongodb://localhost/classdemo";
-db.connect(connection_string,function(err){
-  if(err){
+var connection_string = "mongodb://localhost/test";
+db.connect(connection_string, function (err) {
+  console.log("Connecting to Database...")
+  if (err) {
     console.log("Could not connect to Database");
     return;
-  } else
-  {
-     server.listen(port);
-     server.on('error', onError);
-     server.on('listening', onListening);
+  } else {
+    console.log("Connection successful. Listeting on port " + port);
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
   }
-}); 
+});
 
 /**
  * Normalize a port into a number, string, or false.

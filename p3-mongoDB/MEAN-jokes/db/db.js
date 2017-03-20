@@ -17,7 +17,7 @@ var close = function(done) {
   if (connection) {
     connection.close(function(err, result) {
       connection= null;
-      done(err,result)
+      //done(err,result)
     })
   }
 }

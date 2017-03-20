@@ -1,29 +1,37 @@
+var assert = require('assert')
 var connection = require("../db/db")
-var db = connection.get();
+var ObjectId = require('mongodb').ObjectID
 
-var findJokes = function (db, callback) {
+module.exports.allJokes = function (callback) {
+    var db = connection.get();
+
     var collection = db.collection("jokes");
-
     collection.find({}).toArray(function (err, docs) {
-        console.log("found these " + docs);
+        if (err) { return callback(err, docs) };
+        console.log("Err: " + err);
+        return callback(err, docs);
     });
 };
 
-var connection_string = "mongodb://localhost/classdemo";
-connection.connect(connection_string, function (err) {
-    if (err) {
-        console.log("Error with connect: " + err);
+module.exports.findJoke = function (id, callback) {
+    var db = connection.get();
+    var collection = db.collection('jokes');
+    collection.find(ObjectId(id)).toArray(function (err, docs) {
+        if (err) {
+            return callback(err);
+        }
+        return callback(err, docs);
+    });
+};
+
+module.exports.addJoke = function (jokeToAdd, callback) {
+    var db = connection.get();
+    var collection = db.collection('jokes');
+    try {
+        collection.insertOne(jokeToAdd);
+    } catch (e) {
+        console.log(e);
     }
-    else {
-        var conn = connection.get()
-        console.log("jokes collection: " + conn.collection('jokes'));
-        jokesCollection = conn.collection("jokes");
-        jokesCollection.find({}).toArray(function (err, docs) {
-            if (err) { console.log("Error: " + err) }
-            else {
-                console.log("Docs: "+ docs)
-            }
-        });
-    }
-})
+    connection.close();
+};
 
