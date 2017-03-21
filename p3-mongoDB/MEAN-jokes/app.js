@@ -28,22 +28,33 @@ app.use('/', index);
 app.use('/users', users);
 
 // Implementing routes
-app.get('/api/alljokes', function (req, res) {
+app.get('/api/jokes', function (req, res) {
   dbfacade.allJokes(function (err, data) {
     if (err) {
       console.log("Error: " + err);
     }
     var resp = '';
-    data.forEach(function(element) {
-      
+    data.forEach(function (element) {
+
     });
     res.send(data);
   });
 });
 
-app.get('/api/findjoke/:id', function(request, response) {
-  response.send("Params: " + request.params.id);
+app.get('/api/joke/:id', function (request, response) {
+  var id = request.params.id;
+  dbfacade.findJoke(id, function (err, result) {
+    if (err) {
+      res.render('error');
+    }
+    else {
+      response.send(result)
+    }
+  });
+
 });
+
+app.po
 
 
 // catch 404 and forward to error handler
