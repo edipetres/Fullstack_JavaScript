@@ -1,4 +1,8 @@
-# Pd5_REACT
+# Pd5\_REACT
+
+## Notes for Lars
+Exercise from day one was completed including most of the tutorialspoint guides.
+The bookstore exercise from day 2 is partially done up until the form-handling.
 
 ### Period-5 Single Page Applications with React
 
@@ -9,11 +13,11 @@ on the client side, then the number of requests to the server is dramatically re
 Also flexibility is advantage, it is possible to rewrite front-end with almost no impact on the server.  
 
 
-Manipulating the DOM is a fundamental part of all modern, interactive web. React uses Virtual Dom, for every DOM object, there is a corresponding "virtual DOM object."    
+Manipulating the DOM is a fundamental part of all modern, interactive web. React uses Virtual Dom, for every DOM object, there is a corresponding "virtual DOM object."  
 A virtual DOM object is a representation of a DOM object, like a lightweight copy.  
 
 #### Describe fundamental differences between the SPA-framework/libraries AngularJS and React
-* Angular is a framework, React is a view-library, meaning, that React doesen`t have Controllers, Services Factories, Filters etc.  
+* Angular is a framework, React is a view-library, meaning, that React doesen\`t have Controllers, Services Factories, Filters etc.  
 * AngularJS is a full-on MVC framework, compared to React, which only handles the V(view) from MVC.
 * AngularJS had a clear separation between HTML and JavaScript, with the ng-xx directives as the way to connect the two. React has code and markup in one place (in your JavaScript), using a syntax called JSX that allows you to blend HTML within your JavaScript code.
 * Both React and Angular2 has NO two way binding, it is a lot like javaScript.
@@ -37,7 +41,7 @@ Reactjs - Less to code*
 #### Describe the overall principles used in React to create a SPA
 
 #### Explain, using an example, the fundamental building blocks in React Applications like:
-* #### JSX.  
+* \#\### JSX.
 
 
 A syntax extension to JavaScript, that produces React "elements". After compilation, JSX expressions become regular JavaScript objects and they can be used  inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions.
@@ -49,7 +53,7 @@ function getGreeting(user) {
     return <h1>Hello, Stranger.</h1>; // JSX
   }
 ```
-* #### Rendering Elements.  
+* \#\### Rendering Elements.
 
 
 Elements (variables) are the smallest building blocks of React apps, they describes what you want to see on the screen.
@@ -57,7 +61,7 @@ Elements are what components are "made of".
 ```JavaScript
 const element = <h1>Hello, world</h1>;
 ```
-* #### Components and Props.  
+* \#\### Components and Props.
 
 
 Components are like JavaScript functions. They accept arbitrary inputs ("props") and return React elements describing what should appear on the screen.  
@@ -93,7 +97,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-* #### State (changeable data) and LifeCycle. 
+#### * State (changeable data) and LifeCycle.
 
 
 For data that is going to change, we have to use state In general, you should initialize state in the constructor, and then call setState when you want to change it. The only place you can set state directly is in the constructor.  
@@ -125,7 +129,7 @@ Each component has several "lifecycle methods" that can be overrided to run code
 2. Updating - Can be caused by changes to props or state. These methods are called when a component is being re-rendered.
 3. Unmounting - Called when a component is being removed from the DOM.
 
-* #### Handling Events.  
+* \#\### Handling Events.
 
 
 With JSX you pass a function as the event handler, rather than a string and in camelCase.
@@ -134,7 +138,7 @@ With JSX you pass a function as the event handler, rather than a string and in c
   Activate Lasers
 </button>
 ```
-* #### List and Keys. 
+#### * List and Keys.
 
 
 We can build collections of elements, lists and include them in JSX using curly braces {}.
@@ -152,11 +156,11 @@ const todoItems = todos.map((todo) =>
   </li>
 );
 ```
-* #### Forms
+#### * Forms
 
 
 React component that renders a form also controls what happens in that form on subsequent user input.
-* #### Lifting State Up
+#### * Lifting State Up
 
 #### Describe tools like Babel, WebPack and create-react-app and how the fit into the React-world
 
@@ -181,7 +185,7 @@ With a SPA, "ALL" Route Handling are taken care of Client-side.
 The task of navigating via URL's in a SPA is called Routing and is typically being handled by a specific Router Package, the most commonly used for React is react-router library.  
 React Router:
 * Keeps your UI in sync with the URL
-* simple API with powerful features (lazy code loading, dynamic route matching, location transition handling). 
+* simple API with powerful features (lazy code loading, dynamic route matching, location transition handling).
 
 
 A route handler can do several things:
@@ -195,7 +199,7 @@ npm install react-router@3 --save
 ```
 
 #### Explain what is required to use react-router with a create-react-app project built from scratch
-![alt tag](http://slides3-plaul.rhcloud.com/reactRouting/images/router-links.PNG)
+![alt tag][image-1]
 There is nothing in the code above, that takes care of the actual navigation That's the Job of the Router, the primary component of the React Router Library.
 
 #### Explain, using examples, how JavaScript array methods, like filter, map and (reduce) are used to generate dynamic HTML structures (tables, ul's etc.), and explain about React Keys.
@@ -211,4 +215,6 @@ Basic MobX decorators like:
 * @action - use on everything that can change
 * @observer
 
-npm install -g json-server ---------------> install at the root of the project for running the json file backend from the server, the project is in.
+npm install -g json-server ---------------\> install at the root of the project for running the json file backend from the server, the project is in.
+
+[image-1]:	http://slides3-plaul.rhcloud.com/reactRouting/images/router-links.PNG
