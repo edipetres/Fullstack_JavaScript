@@ -130,7 +130,7 @@ app.post("/register", function (req, res) {
     }
 })
 
-app.get("/secret", passport.authenticate('jwt', { session: false }), function (req, res) {
+app.post("/api/addbook", passport.authenticate('jwt', { session: false }), function (req, res) {
     res.json("Success! You can not see this without a token");
 });
 

@@ -32,7 +32,7 @@ class Home extends Component {
           <BookStore />
         </div>
         <div>
-          <AddBookForm />
+          <AddBookForm/>
         </div>
       </div>
     )
@@ -41,19 +41,20 @@ class Home extends Component {
 class Greetings extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "" , isLoggedIn: false}
+    this.state = { username: "", isLoggedIn: false }
 
     this.logout = this.logout.bind(this);
   }
   componentDidMount() {
     const username = localStorage.getItem('username')
     if (localStorage.getItem('token')) {
-      this.setState({isLoggedIn: true, username: username})
+      this.setState({ isLoggedIn: true, username: username })
     }
   }
   logout() {
-    console.log("Logout clicked")
-    this.setState({isLoggedIn: false})
+    this.setState({ isLoggedIn: false, username: '' })
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
   };
   render() {
     let message = null;
@@ -103,20 +104,23 @@ class LoginForm extends Component {
     })
       .then(function (response) {
         if (response.data.token) {
-          localStorage.setItem("token", response.data.token)
-          localStorage.setItem("username", response.data.username)
-          console.log('logged in')
+          let username = response.data.username;
+          let token = response.data.token;
+          localStorage.setItem("token", token)
+          localStorage.setItem("username", username)
+          alert("You have been logged in as " + username)
         }
       })
       .catch(function (error) {
         console.error(error)
+        alert(error);
       });
-
   }
 
   render() {
     return (
       <div>
+        <Link to='/'>Back</Link>
         <h2>Please log in</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
